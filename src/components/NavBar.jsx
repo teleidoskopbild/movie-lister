@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function NavBar() {
   return (
-    <header>
+    <header className="bg-blue-500 text-white p-4">
       <nav className="navbar">
         <div className="logo">
           <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
@@ -10,7 +10,7 @@ export default function NavBar() {
           </NavLink>
         </div>
         <div className="menu">
-          <ul>
+          <ul className="flex space-x-4"> 
             <li>
               <NavLink to="/movies" className={({ isActive }) => (isActive ? "active" : "")}>
                 Movies
