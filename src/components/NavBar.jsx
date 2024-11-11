@@ -5,24 +5,24 @@ export default function NavBar() {
     <header className="bg-blue-500 text-white p-4">
       <nav className="navbar">
         <div className="logo">
-          <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+          <NavLink to="/">
             Home
           </NavLink>
         </div>
         <div className="menu">
-          <ul className="flex space-x-4"> 
+          <ul className="flex space-x-4">
             <li>
-              <NavLink to="/movies" className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink to="/movies" >
                 Movies
               </NavLink>
             </li>
             <li>
-              <NavLink to="/tv-shows" className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink to="/tv-shows">
                 TV Shows
               </NavLink>
             </li>
             <li>
-              <NavLink to="/actors" className={({ isActive }) => (isActive ? "active" : "")}>
+              <NavLink to="/actors">
                 Actors
               </NavLink>
             </li>
