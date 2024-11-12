@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { fetchTrendingShows } from '../api/tmdbApi.js';
+import { useState, useEffect } from "react";
+import { fetchTrendingShows } from "../api/tmdbApi.js";
 
 function TvShows() {
   const [shows, setShows] = useState([]);
@@ -13,8 +13,8 @@ function TvShows() {
         setShows(data.results);
         setLoading(false);
       } catch (error) {
-        console.error("Error fetching tv shows!", error)
-        setError('Error fetching tv shows!');
+        console.error("Error fetching tv shows!", error);
+        setError("Error fetching tv shows!");
         setLoading(false);
       }
     };
@@ -30,9 +30,9 @@ function TvShows() {
   }
 
   return (
-    <div>
-      <h1>Trending TvShows</h1>
-      <div className="movie-list">
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Trending TvShows</h1>
+      <div className="movie-list flex flex-wrap justify-center gap-8">
         {shows.map((show) => (
           <div key={show.id} className="movie-item">
             <img
@@ -41,7 +41,7 @@ function TvShows() {
               className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg"
             />
             <h2>{show.title}</h2>
-            <p>{show.overview}</p>
+            {/* <p>{show.overview}</p> */}
           </div>
         ))}
       </div>
