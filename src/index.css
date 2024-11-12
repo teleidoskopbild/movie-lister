@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-blue-200;  /* Teste eine einfache Tailwind-Klasse */
+  @apply bg-blue-400; /* Teste eine einfache Tailwind-Klasse */
 }
