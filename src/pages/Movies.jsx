@@ -31,21 +31,35 @@ function Movies() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Trending Movies</h1>
+      <h1 className="text-2xl font-bold mb-4">Top20 - Trending Movies</h1>
       <div className="movie-list flex flex-wrap justify-center gap-8">
-        {movies.map((movie) => (
-          <div key={movie.id}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg "
-            />
-            {/* <h2>{movie.title}</h2> */}
-            {/* <p className="text-sm text-darkgray-600 text-justify">
+        {movies.map((movie) => {
+          const year = new Date(movie.release_date).getFullYear();
+          const rating = Math.floor(movie.vote_average * 10) / 10;
+          let shortTitle = movie.title;
+          if (movie.title.length > 25) {
+            shortTitle = movie.title.slice(0, 25) + "...";
+          }
+
+          return (
+            <div
+              key={movie.id}
+              className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
+            >
+              <p className="bg-gray-00 p-2 text-sm absolute">{rating}</p>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                alt={movie.title}
+                className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg "
+              />
+              <p className="bg-gray-00 p-2 text-sm absolute bottom-7">{year}</p>
+              <p className="p-2 text-sm">{shortTitle}</p>
+              {/* <p className="text-sm text-darkgray-600 text-justify">
               {movie.overview}
             </p> */}
-          </div>
-        ))}
+            </div>
+          );
+        })}
       </div>
     </div>
   );
