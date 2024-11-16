@@ -31,19 +31,32 @@ function TvShows() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Trending TvShows</h1>
+      <h1 className="text-2xl font-bold mb-4">Top20 - Trending TvShows</h1>
       <div className="movie-list flex flex-wrap justify-center gap-8">
-        {shows.map((show) => (
-          <div key={show.id} className="movie-item">
-            <img
-              src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
-              alt={show.title}
-              className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg"
-            />
-            <h2>{show.title}</h2>
-            {/* <p>{show.overview}</p> */}
-          </div>
-        ))}
+        {shows.map((show) => {
+          const year = new Date(show.first_air_date).getFullYear();
+          const rating = Math.floor(show.vote_average * 10) / 10;
+          let shortName = show.name;
+          if (show.name.length > 26) {
+            shortName = show.name.slice(0, 26) + "...";
+          }
+
+          return (
+            <div
+              key={show.id}
+              className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
+            >
+              <p className="bg-gray-00 p-2 text-sm absolute">{rating}</p>
+              <img
+                src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                alt={show.name}
+                className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
+              />
+              <p className="bg-gray-00 p-2 text-sm absolute bottom-7">{year}</p>
+              <p className="p-2 text-sm">{shortName}</p>
+            </div>
+          );
+        })}
       </div>
     </div>
   );

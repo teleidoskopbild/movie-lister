@@ -31,16 +31,19 @@ function Actors() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Trending Actors</h1>
+      <h1 className="text-2xl font-bold mb-4">Top20 - Trending Actors</h1>
       <div className="movie-list flex flex-wrap justify-center gap-8">
         {actors.map((actor) => (
-          <div key={actor.id} className="movie-item">
+          <div
+            key={actor.id}
+            className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500${actor.profile_path}`}
               alt={actor.name}
               className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg"
             />
-            <h2 className="text-center">{actor.name}</h2>
+            <h2 className="p-2">{actor.name}</h2>
           </div>
         ))}
       </div>
