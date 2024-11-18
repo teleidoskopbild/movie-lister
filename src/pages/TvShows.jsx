@@ -37,8 +37,8 @@ function TvShows() {
           const year = new Date(show.first_air_date).getFullYear();
           const rating = Math.floor(show.vote_average * 10) / 10;
           let shortName = show.name;
-          if (show.name.length > 26) {
-            shortName = show.name.slice(0, 26) + "...";
+          if (show.name.length > 20) {
+            shortName = show.name.slice(0, 20) + "...";
           }
 
           return (
