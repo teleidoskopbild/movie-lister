@@ -1,13 +1,13 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Movies from "./pages/Movies.jsx";
 import TvShows from "./pages/TvShows.jsx";
 import Actors from "./pages/Actors.jsx";
-
+import MovieDetails from "./components/MovieDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         element: <Movies />,
       },
       {
+        path: "movies/:id", // Dynamische Route für MovieDetails
+        element: <MovieDetails />,
+      },
+      {
         path: "tv-shows",
         element: <TvShows />,
       },
@@ -34,8 +38,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-   <RouterProvider router={router} />
-  </StrictMode>,
-)
+    <RouterProvider router={router} />
+  </StrictMode>
+);

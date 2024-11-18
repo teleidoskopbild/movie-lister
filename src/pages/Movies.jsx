@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchTrendingMovies } from "../api/tmdbApi.js";
+import { Link } from "react-router-dom";
 
 function Movies() {
   const [movies, setMovies] = useState([]);
@@ -47,16 +48,18 @@ function Movies() {
               className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
             >
               <p className="bg-gray-00 p-2 text-sm absolute">{rating}</p>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-                className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg "
-              />
-              <p className="bg-gray-00 p-2 text-sm absolute bottom-7">{year}</p>
-              <p className="p-2 text-sm">{shortTitle}</p>
-              {/* <p className="text-sm text-darkgray-600 text-justify">
-              {movie.overview}
-            </p> */}
+              <Link to={`/movies/${movie.id}`}>
+                {" "}
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                  className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg "
+                />
+                <p className="bg-gray-00 p-2 text-sm absolute bottom-7">
+                  {year}
+                </p>
+                <p className="p-2 text-sm">{shortTitle}</p>
+              </Link>
             </div>
           );
         })}
