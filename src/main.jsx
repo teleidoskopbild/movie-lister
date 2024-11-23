@@ -8,6 +8,7 @@ import Movies from "./pages/Movies.jsx";
 import TvShows from "./pages/TvShows.jsx";
 import Actors from "./pages/Actors.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
+import TvShowDetails from "./components/TvShowDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "tv-shows",
         element: <TvShows />,
+      },
+      {
+        path: "tv-shows/:id", // Dynamische Route für TvShowDetails
+        element: <TvShowDetails />,
       },
       {
         path: "actors",

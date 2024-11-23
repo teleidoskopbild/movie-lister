@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchTrendingShows } from "../api/tmdbApi.js";
+import { Link } from "react-router-dom";
 
 function TvShows() {
   const [shows, setShows] = useState([]);
@@ -47,13 +48,17 @@ function TvShows() {
               className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
             >
               <p className="bg-gray-00 p-2 text-sm absolute">{rating}</p>
-              <img
-                src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
-                alt={show.name}
-                className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
-              />
-              <p className="bg-gray-00 p-2 text-sm absolute bottom-7">{year}</p>
-              <p className="p-2 text-sm">{shortName}</p>
+              <Link to={`/tv-shows/${show.id}`}>
+                <img
+                  src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
+                  alt={show.name}
+                  className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
+                />
+                <p className="bg-gray-00 p-2 text-sm absolute bottom-7">
+                  {year}
+                </p>
+                <p className="p-2 text-sm">{shortName}</p>
+              </Link>
             </div>
           );
         })}

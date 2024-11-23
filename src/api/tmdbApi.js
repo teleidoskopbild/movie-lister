@@ -56,6 +56,35 @@ export async function fetchTrendingShows() {
   return response.json();
 }
 
+export async function fetchTvShowDetails(id) {
+  const response = await fetch(`${BASE_URL}/tv/${id}`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch tv-show details");
+  }
+
+  return response.json();
+}
+
+export async function fetchTvShowCast(id) {
+  const response = await fetch(`${BASE_URL}/tv/${id}/credits`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch tv-show cast");
+  }
+  const data = await response.json();
+  return data.cast;
+}
+
 export async function fetchTrendingActors() {
   const response = await fetch(`${BASE_URL}/trending/person/week`, {
     headers: {
