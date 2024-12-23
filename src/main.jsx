@@ -9,6 +9,7 @@ import TvShows from "./pages/TvShows.jsx";
 import Actors from "./pages/Actors.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
 import TvShowDetails from "./components/TvShowDetails.jsx";
+import ActorDetails from "./components/ActorDetails.jsx";
 
 const router = createHashRouter([
   {
@@ -38,6 +39,10 @@ const router = createHashRouter([
       {
         path: "actors",
         element: <Actors />,
+      },
+      {
+        path: "actors/:id", // Dynamische Route für ActorDetails
+        element: <ActorDetails />,
       },
     ],
   },
