@@ -2,15 +2,16 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import Movies from "./pages/Movies.jsx";
 import TvShows from "./pages/TvShows.jsx";
 import Actors from "./pages/Actors.jsx";
 import MovieDetails from "./components/MovieDetails.jsx";
 import TvShowDetails from "./components/TvShowDetails.jsx";
+import ActorDetails from "./components/ActorDetails.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <App />,
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "actors",
         element: <Actors />,
+      },
+      {
+        path: "actors/:id", // Dynamische Route für ActorDetails
+        element: <ActorDetails />,
       },
     ],
   },

@@ -97,3 +97,16 @@ export async function fetchTrendingActors() {
   }
   return response.json();
 }
+
+export async function fetchActorDetails(actorId) {
+  const response = await fetch(`${BASE_URL}/person/${actorId}`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch actor details");
+  }
+  return response.json();
+}

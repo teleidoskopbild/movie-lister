@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchTrendingActors } from "../api/tmdbApi.js";
+import { Link } from "react-router-dom";
 
 function Actors() {
   const [actors, setActors] = useState([]);
@@ -34,8 +35,9 @@ function Actors() {
       <h1 className="text-2xl font-bold mb-4">Top20 - Trending Actors</h1>
       <div className="movie-list flex flex-wrap justify-center gap-8">
         {actors.map((actor) => (
-          <div
+          <Link
             key={actor.id}
+            to={`/actors/${actor.id}`}
             className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
           >
             <img
@@ -44,7 +46,7 @@ function Actors() {
               className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg"
             />
             <h2 className="p-2">{actor.name}</h2>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
