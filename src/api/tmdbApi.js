@@ -1,8 +1,8 @@
 const BASE_URL = "https://api.themoviedb.org/3";
 const TOKEN = import.meta.env.VITE_TMDB_ACCESS_TOKEN;
 
-export async function fetchTrendingMovies() {
-  const response = await fetch(`${BASE_URL}/trending/movie/week`, {
+export async function fetchTrendingMovies(page = 1) {
+  const response = await fetch(`${BASE_URL}/trending/movie/week?page=${page}`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       "Content-Type": "application/json",
