@@ -43,8 +43,8 @@ export async function fetchMovieCast(movieId) {
   return data.cast;
 }
 
-export async function fetchTrendingShows() {
-  const response = await fetch(`${BASE_URL}/trending/tv/week`, {
+export async function fetchTrendingShows(page = 1) {
+  const response = await fetch(`${BASE_URL}/trending/tv/week?page=${page}`, {
     headers: {
       Authorization: `Bearer ${TOKEN}`,
       "Content-Type": "application/json",
