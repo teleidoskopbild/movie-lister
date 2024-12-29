@@ -85,13 +85,16 @@ export async function fetchTvShowCast(id) {
   return data.cast;
 }
 
-export async function fetchTrendingActors() {
-  const response = await fetch(`${BASE_URL}/trending/person/week`, {
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-      "Content-Type": "application/json",
-    },
-  });
+export async function fetchTrendingActors(page = 1) {
+  const response = await fetch(
+    `${BASE_URL}/trending/person/week?page=${page}`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
   if (!response.ok) {
     throw new Error("Failed to fetch trending actors");
   }
