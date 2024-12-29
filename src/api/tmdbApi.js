@@ -110,3 +110,21 @@ export async function fetchActorDetails(actorId) {
   }
   return response.json();
 }
+
+export async function fetchActorCredits(actorId) {
+  const response = await fetch(
+    `${BASE_URL}/person/${actorId}/combined_credits`,
+    {
+      headers: {
+        Authorization: `Bearer ${TOKEN}`,
+        "Content-Type": "application/json",
+      },
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch actor credits");
+  }
+
+  return response.json();
+}

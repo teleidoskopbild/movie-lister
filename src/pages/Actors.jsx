@@ -11,6 +11,10 @@ function Actors() {
     const getActors = async () => {
       try {
         const data = await fetchTrendingActors();
+        // const filteredActors = data.results.filter(
+        //   (actor) => actor.adult === false
+        // );
+        // setActors(filteredActors);
         setActors(data.results);
         setLoading(false);
       } catch (error) {
