@@ -41,7 +41,7 @@ function TvShows() {
       <div className="movie-list flex flex-wrap justify-center gap-8">
         {shows.map((show) => {
           const year = new Date(show.first_air_date).getFullYear();
-          const rating = Math.floor(show.vote_average * 10) / 10;
+          const rating = (Math.floor(show.vote_average * 10) / 10).toFixed(1);
           let shortName = show.name;
           if (show.name.length > 20) {
             shortName = show.name.slice(0, 20) + "...";
@@ -52,17 +52,23 @@ function TvShows() {
               key={show.id}
               className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
             >
-              <p className="bg-gray-00 p-2 text-sm absolute">{rating}</p>
+              <p className="p-2 text-sm absolute">
+                <span className="text-gray-100 bg-blue-500 rounded-md p-1">
+                  {rating}
+                </span>
+              </p>
               <Link to={`/tv-shows/${show.id}`}>
                 <img
                   src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                   alt={show.name}
                   className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
                 />
-                <p className="bg-gray-00 p-2 text-sm absolute bottom-7">
-                  {year}
+                <p className="p-0 text-xs absolute top-3 right-2">
+                  <span className="text-gray-100 bg-blue-500 rounded-md p-1">
+                    {year}
+                  </span>
                 </p>
-                <p className="p-2 text-sm">{shortName}</p>
+                <p className="bg-blue-700 p-2 text-sm">{shortName}</p>
               </Link>
             </div>
           );
