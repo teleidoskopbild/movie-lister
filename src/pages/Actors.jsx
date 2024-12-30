@@ -57,7 +57,7 @@ function Actors() {
               alt={actor.name}
               className="movie-poster w-48 h-72 object-cover rounded-lg shadow-lg"
             />
-            <h2 className="p-2">{actor.name}</h2>
+            <h2 className="bg-blue-700 p-2">{actor.name}</h2>
           </Link>
         ))}
       </div>
