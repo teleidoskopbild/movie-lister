@@ -22,12 +22,29 @@ function ActorDetails() {
         setActor(actorData);
 
         // Nach Medien-Typ filtern
-        const moviesList = creditsData.cast.filter(
-          (item) => item.media_type === "movie"
-        );
-        const showsList = creditsData.cast.filter(
-          (item) => item.media_type === "tv"
-        );
+        const moviesList = creditsData.cast
+          .filter(
+            (item) =>
+              item.media_type === "movie" &&
+              item.poster_path &&
+              item.vote_average <= 7.0 &&
+              item.popularity > 1
+          )
+          .sort((a, b) => new Date(b.release_date) - new Date(a.release_date));
+
+        const showsList = creditsData.cast
+          .filter(
+            (item) =>
+              item.media_type === "tv" && // Nur TV-Shows
+              item.poster_path && // Nur Shows mit einem Poster
+              item.episode_count > 1 && // Mindestens eine Episode
+              item.character && // Charakter muss angegeben sein
+              !item.name.toLowerCase().includes("talk") &&
+              !item.name.toLowerCase().includes("reality")
+          )
+          .sort(
+            (a, b) => new Date(b.first_air_date) - new Date(a.first_air_date) // Nach Erscheinungsdatum sortieren
+          );
 
         setMovies(moviesList);
         setShows(showsList);
