@@ -37,7 +37,9 @@ function Movies() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Trending Movies</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">
+        Trending Movies
+      </h1>
 
       {/* Ladeanzeige */}
       {loading && <div className="text-center mb-4">Loading movies...</div>}
@@ -54,7 +56,7 @@ function Movies() {
           return (
             <div
               key={movie.id}
-              className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
+              className="bg-gray-800 text-white rounded-lg w-60 overflow-hidden relative"
             >
               <p className="p-2 text-sm absolute">
                 <span className="text-gray-100 bg-blue-500 rounded-md p-1">
@@ -65,7 +67,7 @@ function Movies() {
                 <img
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt={movie.title}
-                  className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
+                  className="movie-poster w-60 h-80 object-cover rounded-t-lg shadow-lg"
                 />
                 <p className="p-0 text-xs absolute top-3 right-2">
                   <span className="text-gray-100 bg-blue-500 rounded-md p-1">

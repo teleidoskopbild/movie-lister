@@ -37,7 +37,9 @@ function TvShows() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Trending TvShows</h1>
+      <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">
+        Trending TvShows
+      </h1>
       <div className="movie-list flex flex-wrap justify-center gap-8">
         {shows.map((show) => {
           const year = new Date(show.first_air_date).getFullYear();
@@ -50,7 +52,7 @@ function TvShows() {
           return (
             <div
               key={show.id}
-              className="bg-gray-800 text-white rounded-lg w-48 overflow-hidden relative"
+              className="bg-gray-800 text-white rounded-lg w-60 overflow-hidden relative"
             >
               <p className="p-2 text-sm absolute">
                 <span className="text-gray-100 bg-blue-500 rounded-md p-1">
@@ -61,7 +63,7 @@ function TvShows() {
                 <img
                   src={`https://image.tmdb.org/t/p/w500${show.poster_path}`}
                   alt={show.name}
-                  className="movie-poster w-48 h-72 object-cover rounded-t-lg shadow-lg"
+                  className="movie-poster w-60 h-80 object-cover rounded-t-lg shadow-lg"
                 />
                 <p className="p-0 text-xs absolute top-3 right-2">
                   <span className="text-gray-100 bg-blue-500 rounded-md p-1">
