@@ -35,7 +35,7 @@ export default function NavBar() {
                 TV Shows
               </NavLink>
             </li>
-            <li>
+            {/* <li>
               <NavLink
                 className={
                   ({ isActive }) =>
@@ -47,7 +47,7 @@ export default function NavBar() {
               >
                 Actors
               </NavLink>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
