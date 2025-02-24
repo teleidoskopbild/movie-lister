@@ -25,6 +25,9 @@ function TvShows() {
 
   useEffect(() => {
     getTvShows(page); // TV-Shows für die aktuelle Seite laden
+    setTimeout(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, 100);
   }, [page]);
 
   const handlePageChange = (newPage) => {
