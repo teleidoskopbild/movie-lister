@@ -6,8 +6,8 @@ function Actors() {
   const [actors, setActors] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [page, setPage] = useState(1); // Aktuelle Seite
-  const [hasMore, setHasMore] = useState(true); // Gibt es mehr Seiten?
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
 
   const getActors = async (currentPage) => {
     try {
@@ -31,7 +31,7 @@ function Actors() {
   }, [page]);
 
   const handlePageChange = (newPage) => {
-    setPage(newPage); // Seite wechseln
+    setPage(newPage);
   };
 
   if (loading) {

@@ -29,6 +29,21 @@ export async function fetchMovieDetails(id) {
   return response.json();
 }
 
+export async function fetchMovieImages(id) {
+  const response = await fetch(`${BASE_URL}/movie/${id}/images`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch movie images");
+  }
+
+  return response.json();
+}
+
 export async function fetchMovieCast(movieId) {
   const response = await fetch(`${BASE_URL}/movie/${movieId}/credits`, {
     headers: {
@@ -66,6 +81,21 @@ export async function fetchTvShowDetails(id) {
 
   if (!response.ok) {
     throw new Error("Failed to fetch tv-show details");
+  }
+
+  return response.json();
+}
+
+export async function fetchTVShowImages(id) {
+  const response = await fetch(`${BASE_URL}/tv/${id}/images`, {
+    headers: {
+      Authorization: `Bearer ${TOKEN}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch TV show images");
   }
 
   return response.json();

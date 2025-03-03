@@ -15,8 +15,8 @@ export default function NavBar() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-300 font-bold"
-                    : "text-white hover:text-yellow-400"
+                    ? "text-white font-bold"
+                    : "text-blue-300 hover:text-yellow-400"
                 }
                 to="/movies"
               >
@@ -27,27 +27,14 @@ export default function NavBar() {
               <NavLink
                 className={({ isActive }) =>
                   isActive
-                    ? "text-blue-300 font-bold"
-                    : "text-white hover:text-yellow-400"
+                    ? "text-white font-bold"
+                    : "text-blue-300 hover:text-yellow-400"
                 }
                 to="/tv-shows"
               >
                 TV Shows
               </NavLink>
             </li>
-            {/* <li>
-              <NavLink
-                className={
-                  ({ isActive }) =>
-                    isActive
-                      ? "text-blue-300 font-bold" // Active link styles
-                      : "text-white hover:text-yellow-400" // Regular link styles
-                }
-                to="/actors"
-              >
-                Actors
-              </NavLink>
-            </li> */}
           </ul>
         </div>
       </nav>
