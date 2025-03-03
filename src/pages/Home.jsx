@@ -1,6 +1,6 @@
+import { Navigate } from "react-router-dom";
 function Home() {
-    return <h1>Welcome to Movie Lister</h1>;
-  }
-  
-  export default Home;
-  
+  return <Navigate to="/movies" />;
+}
+
+export default Home;
